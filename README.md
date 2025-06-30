@@ -29,6 +29,8 @@ Using the **CalEnviroScreen 4.0** dataset, which compiles detailed metrics at th
 
 ## Summary of Findings
 
+### Polynomial Ridge Regression Model
+
 - The optimized polynomial Ridge regression model (degree 2) with best alpha = 100 demonstrates strong predictive performance:
   - Cross-validated RMSE: 3.697  
   - Test RMSE: 3.760  
@@ -38,6 +40,35 @@ Using the **CalEnviroScreen 4.0** dataset, which compiles detailed metrics at th
 - Significant interaction terms such as **PM2.5 × Groundwater Threats**, **Diesel PM × Poverty**, and **PM2.5 × Traffic** reveal multifactorial influences on cardiovascular disease risk.
 - Negative coefficients for some interactions suggest complex relationships where certain exposure combinations may mitigate or modulate risk.
 - The model’s use of nonlinear and interaction features confirms the multifaceted and nonlinear determinants underlying cardiovascular disease rates.
+
+### Random Forest Regression Model
+
+- A Random Forest regression model was built using the same features, leveraging its ability to capture complex nonlinear relationships and interactions without explicit feature engineering.
+- Performance metrics:
+  - Test RMSE: 3.112  
+  - Test R²: 0.61, explaining 61% of the variance in cardiovascular disease rates.
+- This model significantly outperformed the polynomial Ridge model, demonstrating better predictive accuracy and explanatory power.
+- The results indicate that cardiovascular disease prevalence is influenced by complex and nonlinear combinations of environmental and socioeconomic factors.
+- Important features identified include **Education, Poverty, Ozone, Unemployment, PM2.5, Toxic Releases,** and **Drinking Water Quality**.
+
+---
+
+## Important Findings
+
+- Both models highlight **education and poverty** as critical social determinants of cardiovascular health.
+- Environmental pollutants such as **PM2.5 and ozone** also play a substantial role.
+- The Random Forest model’s superior performance suggests the relationships between these factors and cardiovascular disease are highly nonlinear and interactive.
+- These insights support targeted public health strategies focusing on pollution reduction and social support in vulnerable communities.
+  
+---
+
+## Next Steps and Recommendations
+
+- Further refine models by incorporating additional environmental and health data or improving spatial resolution.
+- Explore advanced ensemble methods like gradient boosting (e.g., XGBoost) for potentially improved predictions.
+- Collaborate with public health officials to apply findings in designing interventions addressing both social determinants and environmental risks.
+- Investigate temporal trends through longitudinal data to better understand causality and impact over time.
+
 ---
 
 ## Repository Structure
@@ -50,9 +81,10 @@ Capstone-CVD-analysis/
 ├── doc/
 │ └── Summary.docx # Project summary document
 │ └── Summary_Capstone_1.docx # Capstone 1 summary document
+│ └── Summary_Capstone_2.docx # Capstone 1 summary document
 │
 ├── notebooks/
-│ └── eda_cvd_analysis.ipynb # EDA, visualization, and modeling notebook
+│ └── eda_cvd_analysis-2.ipynb # EDA, visualization, and modeling notebook
 │
 └── README.md # Project overview
 
